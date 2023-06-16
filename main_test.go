@@ -28,7 +28,7 @@ func Test_Proc(t *testing.T) {
 		fmt.Println("--- response(http header) end ---")
 	} else {
 		fmt.Println("---Error---")
-		fmt.Println("StatusCode:", string(resp.StatusCode))
+		fmt.Println("StatusCode:", string(rune(resp.StatusCode)))
 	}
 }
 
