@@ -95,10 +95,11 @@ func getCsvData(f interface{}, encodeType string) ([]byte, error) {
 	// CSVWriterオプション設定
 	gocsv.SetCSVWriter(func(out io.Writer) *gocsv.SafeCSVWriter {
 		var writer io.Writer
-		if encodeType == EncodeTypeUTF8 {
+		switch encodeType {
+		case EncodeTypeUTF8:
 			// utf-8
 			writer = out
-		} else if encodeType == EncodeTypeSJIS {
+		case EncodeTypeSJIS:
 			// shift-jis
 			writer, _ = iconv.NewWriter(out, EncodeTypeUTF8, EncodeTypeSJIS)
 		}
